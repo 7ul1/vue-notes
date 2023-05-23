@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+        <input type="text" placeholder="按下回车提示输入" @keyup.huiche="showInfo">
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+        Vue.config.keyCodes.huiche = 13
+        new Vue({
+            el:'#box',
+            data:{
+                name:'sgg'
+            },
+            methods:{
+                showInfo(e){
+                    // if(e.keyCode !== 13)return
+                    console.log(e.key,e.keyCode);
+                    // console.log(e.target.value);
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

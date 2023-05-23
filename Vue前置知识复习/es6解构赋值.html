@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var result ={
+        //     name:'喽喽',
+        //     age:27
+        // }
+
+        // // console.debug(result.name)
+        // // console.info(result.name)
+        // // console.log(result.age)
+        // console.info(result.name)
+        // console.info(result.name)
+
+        // // console.info(result['name'])
+
+        // const {name,age} = result;
+        // console.info(name);
+        // console.info(age);
+
+        // const result = {
+        //     name:'hello',
+        //     age:18,
+        //     city:'123',
+        //     person:{
+        //         name:'ppp',
+        //         liage:909
+        //     }
+        // }
+        // const{name,age,city,person:{name:neme}} = result;
+        // console.info(name)
+        // console.info(age)
+        // console.info(city)
+        // console.info(neme)
+        // console.info(liage)
+
+        // const user = {
+        //     userName: "光脚丫思考",
+        //     blog: "https://blog.csdn.net/gjysk",
+        //     details: {
+        //         nickName: "光脚丫思考",
+        //         address: {
+        //             domicileAddress: "户籍地",
+        //             abodePlace: "居住地"
+        //         },
+        //         signature: "勿以善小而不为，勿以恶小而为之"
+        //     }
+        // }
+
+        // const{userName,blog,details:{address:{abodePlace}}}=user;
+        // console.info(abodePlace)
+        // console.info(blog)
+        // console.info(nickName)
+
+        // const result ={
+        //     name:'123',
+        //     age:90,
+        //     // city:undefined
+        // }
+        // const {name,age,city='111111'}=result;
+        // console.info(name)
+        // console.info(age)
+        // console.info(city)
+
+        // const user = {
+        //      userName: "光脚丫思考",
+        //      blog: "https://blog.csdn.net/gjysk",
+        //      age:{
+        //         blog:null
+        //      }
+        // }
+        // // const { userName, blog, message = `我是${userName}，我的博客地址是：${blog}` } = user;
+        // // console.info(userName);
+        // // console.info(blog);
+        // // console.info(message);
+        // const{userName,blog,age:{blog:cdn},message=`我的名字是${userName}我的家在${cdn}`}=user
+        // console.info(userName)
+        // console.info(blog)
+        // console.info(cdn)
+        // console.info(message)
+
+        // const user = {
+        //      userName: "光脚丫思考",
+        //      blog: "https://blog.csdn.net/gjysk",
+
+        // }
+        // const {userName:name,blog:cdn,mseesge=`我叫${name}家在${cdn}`} =user
+        // // const {userName:name,blog:cdn,mseesge=`我叫${userName}家在${blog}`} =user
+        // console.info(mseesge);
+
+        // const user = {
+        //         userName: "光脚丫思考",
+        //         blog: "https://blog.csdn.net/gjysk",
+        //     };
+        // function getValue(data, key) {
+        //     const { [key]: value } = data;
+
+        //     return value;
+        // }
+        // let userName = getValue(user, "userName");
+        // let blog = getValue(user, "blog");
+        // console.info(userName);
+        // console.info(blog);
+
+        const user = {
+                userName: "光脚丫思考",
+                blog: "https://blog.csdn.net/gjysk",
+        };
+        function display({ userName, blog }) {
+            let message = `大家好，我是${userName}，我的博客地址是：${blog}`;
+            console.info(message);
+        }
+        display(user);
+        const {userName,blog} = user
+
+        let [a,b,c,d] = 'Welcome you!';
+        console.info(a);
+        console.info(b);
+        console.info(c);
+        console.info(d);
+
+
+    </script>
+</body>
+</html>

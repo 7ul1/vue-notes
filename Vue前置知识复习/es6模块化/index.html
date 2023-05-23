@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        // import * as m1 from "./m1.js";
+        // m1.getUser()
+        // // console.log(m1)
+
+        // ------------------------
+
+        // 解构赋值的形式导入
+
+        // import{ result , getUser } from "./m1.js";
+        // console.log(result);
+
+        // ------------------------
+
+        // 此方法只针对于默认暴露 default
+        import m1 from "./m1.js"
+        // m1.getUser();
+        console.log(m1);
+    </script>
+</body>
+</html>

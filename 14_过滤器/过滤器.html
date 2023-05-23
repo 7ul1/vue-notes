@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+    <script src="../js/day.js"></script>
+</head>
+<body>
+    <div id='box'>
+        <h2>显示格式化后的时间</h2>
+        <!-- 计算属性实现 -->
+        <h3>现在是：{{fmTime}}</h3>
+        <!-- methods实现 -->
+        <h3>现在是：{{getFmTime()}}</h3>
+        <!-- 过滤器实现 -->
+        <h3>现在是：{{time | timeFormater}}</h3>
+
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+
+        new Vue({
+            el:'#box',
+            data:{
+                time:Date.now(),
+            },
+            computed:{
+                fmTime(){
+                    return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss');
+                }
+            },
+            methods: {
+                getFmTime(){
+                    return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss');
+                }
+            },
+            filters:{
+                timeFormater(val){
+                    console.log(val);
+                    return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

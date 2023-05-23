@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+        <h1>学校名称：{{name}}</h1>
+        <h1>学校地址：{{address}}</h1>
+        <h1>测试：{{1+1}}</h1>
+        <h1>测试：{{$options}}</h1>
+        <h1>测试：{{$emit}}</h1>
+        <h1>测试：{{_c}}</h1>
+    </div>
+    <script>
+        Vue.config.porductionTip = false;
+        const vm = new Vue({
+            el:'#box',
+            data:{
+                name:'小肥牛',
+                address:'xxx/xxx/xxxxx'
+            }
+        })
+        console.log(vm);
+    </script>
+</body>
+</html>

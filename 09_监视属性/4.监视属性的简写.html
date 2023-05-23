@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+        <h2>今天天气很{{info}}</h2>
+        <button @click="isHu()">切换天气</button>
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+        const vm = new Vue({
+            el:'#box',
+            data:{
+                isHot:true,
+            },
+            methods: {
+                isHu(){
+                    // 布尔值可以取反
+                    this.isHot = !this.isHot;
+                }
+            },
+            computed:{
+                info(){
+                    return this.isHot ? '炎热' : '凉爽';
+                    
+                }
+            },
+            watch:{
+                // 完整写法
+                // isHot:{
+                //     // immediate:true, // 初始化时让handler调用一下
+                //     // 深度监视 // deep:true,
+                //     handler(newValue,oldValue){
+                //         // console.info('isHot被改了')
+                //         console.info('现在的天气是'+newValue+',之前的是'+oldValue)
+                //     }
+                // },
+
+                // 简写写法
+                isHot(newValue,oldValue){
+                    // immediate:true,
+                    console.info('现在的天气是'+newValue+',之前的是'+oldValue)
+                }
+            }
+            
+        })        
+        
+        // 正常写法
+        vm.$watch('isHot',{
+            // immediate:true, // 初始化时让handler调用一下
+            // 深度监视 // deep:true,
+            handler(newValue,oldValue){
+                // console.info('isHot被改了')
+                console.info('现在的天气是'+newValue+',之前的是'+oldValue)
+            }            
+        })
+
+        // 简写方法
+        vm.$watch('inHot',function(newValue,oldValue){
+            console.info('现在的天气是'+newValue+',之前的是'+oldValue)
+
+        })
+    </script>
+</body>
+</html>

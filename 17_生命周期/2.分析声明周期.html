@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+        <h2>当前的n值是：{{n}}</h2>
+        <button @click="add">点我n++</button>
+        <button @click="bye">点我销毁vm</button>
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+        const vm = new Vue({
+            el:'#box',
+            data:{
+                n:1
+            },
+            methods: {
+                add(){
+                    this.n++;
+                },
+                bye(){
+                    console.log('拜拜了vm');
+                    this.$destroy()
+                }
+            },
+            beforeCreate() {
+                console.log('beforeCreate');
+                // console.log(this);
+                // debugger;
+            },
+            created() {
+                console.log('created');
+                // console.log(this);
+                // debugger;
+            },
+            beforeMount() {
+                console.log('beforeMount');
+                // console.log(this);
+                // debugger;
+            },
+            mounted() {
+                console.log('mounted');
+                // console.log(this);
+                // debugger;
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate');
+                // console.log(this.n);
+                // debugger
+            },
+            updated() {
+                console.log('beforeUpdate');
+                // console.log(this.n);
+                // debugger
+            },
+        })
+    </script>
+</body>
+</html>

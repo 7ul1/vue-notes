@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+        <h1>{{msg}}</h1>
+        <school></school>
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+
+        const school = Vue.extend({
+            template:`
+                <div>
+                    <h2>学校名称：{{name}}</h2>
+                    <h2>学校地址：{{address}}</h2>
+                </div>
+            `,
+            data(){
+                return{
+                    name:'尚硅谷',
+                    address:'北京'
+                }
+            }
+        })
+
+        new Vue({
+            el:'#box',
+            data:{
+                msg:'欢迎你来学习'
+            },
+            components:{
+                school
+            }
+        })
+    </script>
+</body>
+</html>

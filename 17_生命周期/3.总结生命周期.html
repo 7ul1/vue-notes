@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+        <!-- <h1 v-if="a">Hello Everybody</h1> -->
+        <h2 :style={opacity}>欢迎学习Vue</h2>
+        <button @click="stop">点我停止</button>
+        <button @click="opacity='1'">点我透明1</button>
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+        
+        const vm = new Vue({
+            el:'#box',
+            data:{
+                // a:false,
+                opacity:1,
+            },
+            methods: {
+                // change(){
+                //     console.log(1);
+                //     setInterval(() => {
+                //         this.opacity -= 0.01
+                //         if (this.opacity <= 0) this.opacity = 1
+                //     }, 16);  
+                // }
+                stop(){
+                    this.$destroy();
+                }
+            },
+            // Vue完成模板的解析并把真实DOM元素放入页面后(挂在完毕)调用mounted
+            mounted() {
+                // console.log('mounted');
+                this.timer = setInterval(() => {
+                    // this.a = false
+                    console.log('setInterval');
+                    this.opacity -= 0.01
+                    if (this.opacity <= 0) {
+                        // this.a = !this.a
+                        this.opacity = 1
+                    }
+                }, 16);  
+            },
+            beforeDestroy() {
+                clearInterval(this.timer)
+                
+            },
+        })
+
+        // 外部定时器实现透明
+        // setInterval(() => {
+        //     vm.opacity -= 0.01
+        //     if (vm.opacity <= 0) {
+        //         vm.opacity = 1
+        //     }
+        // }, 16);
+
+    </script>
+</body>
+</html>

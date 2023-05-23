@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+
+    </div>
+    <script type='text/javascript'>
+        // <script>
+        Vue.config.porductionTip = false;
+
+        function Demo(){
+            this.a = 1
+            this.b = 2
+        }
+        const d = new Demo()
+
+        // console.dir(d);
+        // console.log(d.__proto__);
+        // console.dir(d);
+        // console.log(Demo.prototype);
+        // console.log(Demo.prototype === d.__proto__);
+
+        Demo.prototype.x = 99;
+        // console.log(d.x);
+        // console.log(Demo.prototype.x);
+        console.log(d.prototype.__proto__ === Demo.prototype);
+    </script>
+</body>
+</html>

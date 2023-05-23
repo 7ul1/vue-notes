@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    
+</head>
+<body>
+    <!-- 准备容器 -->
+    <div id="box">
+        <h1>Hello,{{name.toUpperCase()}},{{Date.now()}}</h1>
+        <!-- <h2>年龄,{{age}}</h2> -->
+    </div>
+    <!-- <div id="box"> -->
+        <!-- <h1>Hello,{{name}},{{Date.now()}}</h1> -->
+        <!-- <h2>年龄,{{age}}</h2> -->
+    <!-- </div> -->
+
+    <script type="text/javascript">
+        // 关闭生产环节的文件更换提示
+        // 设置为 false 以阻止 vue 在启动时生成生产提示
+        Vue.config.productionTip = false;
+        
+        // 创建Vue实例
+        new Vue({
+            el:'#box', // el 用于指定当前Vue实例为哪个容器服务 值通常为css选择器字符串
+            data:{ 
+                // data 中用于存储数据 数据供el所指定的容器使用 
+                name:'Word',
+                // age:20
+            }
+        });
+
+
+
+    </script>
+</body>
+</html>

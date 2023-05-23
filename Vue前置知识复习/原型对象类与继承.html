@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // es6 class类构造函数
+        // class Preson{
+        //     constructor(name,age){
+        //         this.name = name;
+        //         this.age = age;
+        //     }
+        // }
+        // let preson = new Preson('123',52);
+        // console.log(preson);
+
+        // class User{
+        //     constructor(name,pass){
+        //         this.name = name;
+        //         this.pass = pass;
+        //     }
+
+        //     login(){
+        //         console.log('登录');
+        //     }
+        // }
+
+        // class Admin extends User {
+        //     deletUser(){
+        //         console.log('删除');
+        //     }
+        // }
+        // let admin = new Admin();
+        // admin.login();
+
+        function User(name,age){
+            this.name = name;
+            this.age = age;
+            // this.login = function(){
+            //     console.log('111111');
+            // }
+        }
+
+        function Admin(){
+            this.deletPerson = function(){
+                console.log('222222');
+            }
+        }
+
+        Object.prototype.login = function(){
+                console.log('567');
+            }
+        
+
+        Admin.prototype = new User();
+
+        let admin = new Admin();
+
+        admin.login();
+        // 函数原型
+        // function Cat(name,age){
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // let cat = new Cat('miao',312);
+        // Cat.prototype.pop = function(){
+        //     console.log('chichichi');
+        // };
+        // cat.pop();
+
+        // 对象原型
+        // let cat = {
+        //     name:'123',
+        //     age:18
+        // }
+        // // console.log(cat.name);
+        // cat.__proto__.eae = function(){
+        //     console.log(324532452);
+        // }
+        // cat.eae();
+
+        // // 练习
+        // // 对象原型
+        //     let user = {
+        //         name:'111',
+        //         age:18
+        //     }
+        //     user.__proto__.li = function(){
+        //         console.log(`${this.name}`);
+        //     }
+        //     user.li();
+
+        // // 函数原型
+        // function Name(noe,two){
+        //     this.noe = noe;
+        //     this.two = two;
+        // }
+        // let name = new Name('夏明','北京');
+        // Name.prototype.result = function(){
+        //     let res = `我叫${this.noe},家住在${this.two}`;
+        //     console.log(res);
+        // }
+        // name.result();
+
+        
+    </script>
+</body>
+</html>

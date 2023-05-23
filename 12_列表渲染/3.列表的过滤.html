@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+        <!-- 数组遍历 -->
+        <input type="text" placeholder="请输入名字" v-model="keyWord">
+        <ul>
+            <li v-for="p in fillPersons" :key="p.id">
+                {{p.name}}-{{p.age}}-{{p.sex}}
+            </li>
+        </ul>
+         
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+
+        // watch 实现
+        /* new Vue({
+            el:'#box',
+            data:{
+                keyWord:'',
+                persons:[
+                    {id:'001',name:'马冬梅',age:18,sex:'女'},
+                    {id:'002',name:'周冬雨',age:20,sex:'女'},
+                    {id:'003',name:'周杰伦',age:93,sex:'男'},
+                    {id:'004',name:'温兆伦',age:33,sex:'男'}
+                ],
+                fillPersons:[]
+            },
+            watch:{
+                
+                keyWord:{
+                    immediate:true,
+                    handler(val){
+                        this.fillPersons = this.persons.filter((p)=>{
+                        return p.name.indexOf(val) !== -1;
+                    })
+                    }
+                }
+            }
+        }) */
+            
+        
+        // computed 实现
+        new Vue({
+            el:'#box',
+            data:{
+                keyWord:'',
+                persons:[
+                    {id:'001',name:'马冬梅',age:18,sex:'女'},
+                    {id:'002',name:'周冬雨',age:20,sex:'女'},
+                    {id:'003',name:'周杰伦',age:93,sex:'男'},
+                    {id:'004',name:'温兆伦',age:33,sex:'男'}
+                ],
+            },
+            computed:{
+                fillPersons(){
+                    return this.persons.filter((p)=>{
+                        return p.name.indexOf(this.keyWord) !== -1;
+                    })
+                }
+            }
+        }) 
+
+   </script>
+</body>
+</html>

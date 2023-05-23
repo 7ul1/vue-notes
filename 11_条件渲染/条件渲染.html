@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+    <!-- <style>
+    </style> -->
+</head>
+<body>
+    <div id='box'>
+        <!-- 使用 v-show做条件渲染 -->
+        <!-- <button @click="info">点我切换隐藏与显示</button>
+        <h1 v-show="hid">欢迎来到{{name}}</h1> -->
+
+        <!-- 使用v-if做条件渲染 -->
+        <!-- <h1 v-if="false">欢迎来到{{name}}</h1> -->
+
+        <h2>{{n}}</h2>
+        <button @click="n++">加法</button>
+        <!-- <h1 v-if="n===1">123</h1>
+        <h1 v-else-if="n===2">456</h1>
+        <h1 v-else-if="n===3">789</h1>
+        <h1 v-else="">你哈</h1> -->
+
+        <template v-if="n===1">
+            <h1>1</h1>
+            <h1>2</h1>
+            <h1>3</h1>
+        </template>
+
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+        new Vue({
+            el:'#box',
+            data:{
+                name:'小飞鸟学院',
+                // hid:'true'
+                n:0
+            },
+            // methods: {
+            //     info(){
+            //         this.hid = !this.hid;
+            //     }
+            // },
+        })
+    </script>
+</body>
+</html>

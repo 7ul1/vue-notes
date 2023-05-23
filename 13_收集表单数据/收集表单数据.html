@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+        <form @submit.prevent="demo">
+            账号：<input type="text" v-model.trim="account"><br><br>
+            密码：<input type="password" v-model="password"><br><br>
+            年龄：<input type="number" v-model.number="age"><br><br>
+            性别：
+            男<input type="radio" name="sex" value="男" v-model="sex">
+            女<input type="radio" name="sex" value="女" v-model="sex"><br><br>
+            爱好：
+            学习<input type="checkbox" value="学习" v-model="hobby">
+            打游戏<input type="checkbox" value="打游戏" v-model="hobby">
+            吃饭<input type="checkbox" value="吃饭" v-model="hobby"><br><br>
+            所属校区：
+            <select v-model="city">
+                <option value="">请选择校区</option>
+                <option value="北京">北京</option>
+                <option value="上海">上海</option>
+                <option value="南京">南京</option>
+                <option value="武汉">武汉</option>
+            </select><br><br>
+            其他信息：
+            <textarea cols="30" rows="10" v-model.lazy="otherT"></textarea><br><br>
+            <input type="checkbox" v-model="agree">阅读并接受<a href="#">《用户协议》</a><br><br>
+            <button>提交</button>
+        </form>
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+        new Vue({
+            el:'#box',
+            data:{
+                account:'',
+                password:'',
+                sex:'男',
+                hobby:[],
+                city:'北京',
+                otherT:'',
+                agree:'true',
+                age:18
+            },
+            methods: {
+                // def(event){
+                //     event.preventDefault()
+                // },
+                demo(){
+                    // alert(1)
+                    // console.log(this._data);
+                    console.log(JSON.stringify(this._data));
+                }
+            },
+        })
+    </script>
+</body>
+</html>

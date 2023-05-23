@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+    <style>
+        *{
+            margin-top: 20px;
+        }
+        .demo1{
+            height: 50px;
+            background: skyblue;
+        }
+
+        .box1{
+            padding: 5px;
+            background: skyblue;
+        }
+        .box2{
+            padding: 5px;
+            background: orange;
+        }
+
+        .list{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            overflow: auto;
+        }
+        li{
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id='box'>
+        <h2>欢迎来到{{name}}学习</h2>
+        <!-- > 1. prevent：阻止默认事件(常用) -->
+        <a href="http://www.baidu.com" @click.prevent="showInfo">点我提示信息</a>
+
+        <!-- > 2. stop：阻止事件冒泡(常用) -->
+        <div class="demo1" @click="showInfo">
+            <button @click.stop="showInfo">点我提示信息s</button>
+        </div>
+
+        <!-- > 3. once：事件只触发一次(常用) -->
+        <button @click.once="showInfo">点我提示信息s</button>
+
+        <!-- 4. 使用事件的捕获模式 -->
+        <div class="box1" @click.capture="showMsg(1)">
+            div1
+            <div class="box2" @click="showMsg(2)">
+                div2
+            </div>
+        </div>
+
+        <!-- > 5. self：只有event.target是当前操作的元素是才触发事件 -->
+        <div class="demo1" @click.self="showInfo">
+            <button @click="showInfo">点我提示信息s</button>
+        </div>
+
+        <!-- > 6. passive：事件的默认行为立即执行 无需等待事件回调执行完毕 -->
+        <ul class="list" @scroll.passive="demo"> 
+        <!-- <ul class="list" @wheel="demo"> -->
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+        new Vue({
+            el:'#box',
+            data:{
+                name:'小肥牛课堂'
+            },
+            methods:{
+                showInfo(e){
+                    // 阻止默认行为
+                    // e.preventDefault();
+                    // 阻止事件冒泡
+                    // e.stopPropagation();
+                    alert('你好')
+                    // console.log(e.target);
+                },
+                showMsg(msg){
+                    console.log(msg);
+                },
+                demo(){
+                    // console.log('@');
+                    for (let i = 0; i < 10000; i++) {
+                        console.log('#');                        
+                    }
+                    console.log('结束了！！！！');
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+        <h2>欢迎来到{{name}}学习</h2>
+        <!-- <button v-on:click="shouInfo">点我提示信息</button> -->
+        <button @click="shouInfo1">点我提示信息1</button>
+        <button @click="shouInfo2(6666,$event)">点我提示信息2</button>
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+        const vm = new Vue({
+            el:'#box',
+            data:{
+                name:'小肥牛'
+            },
+            methods:{
+                shouInfo1(event){
+                    // console.log(event.target.innerText);
+                    // console.log(this); // 此处的this是vm
+                alert('你好同学1')
+                },
+                shouInfo2(event,a,b,c){
+                    console.log(event,a,b,c);
+                    // console.log(event.target.innerText);
+                    // console.log(this); // 此处的this是vm
+                // alert('你好同学2')
+                console.log(event);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

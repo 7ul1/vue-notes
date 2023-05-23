@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="box">
+        <!-- 普通写法 -->
+        <!-- 单向数据绑定：<input type="text" v-bind:value="name"><br>
+        双向数据绑定：<input type="text" v-model:value="name"><br> -->
+
+        <!-- 简写 -->
+        单向数据绑定：<input type="text" :value="name"><br>
+        双向数据绑定：<input type="text" v-model="name"><br>
+
+
+        <!-- 如下代码是错误的 因为 v-model只能应用在表单元素（输入类元素）上 -->
+        <!-- <h2 v-model:x="name">你好</h2> -->
+    </div>
+
+    <script type="text/javascript">
+        // 设置为 false 以阻止 vue 在启动时生成生产提示
+        Vue.config.productionTip = false;
+        new Vue({
+            el:'#box',
+            data:{
+               name:'你好'
+
+            }
+        })
+    </script>
+            
+</body>
+</html>

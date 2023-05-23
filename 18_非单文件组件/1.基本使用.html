@@ -1,0 +1,78 @@
+<!--
+ * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @Date: 2023-02-02 09:43:46
+ * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
+ * @LastEditTime: 2023-02-02 10:55:47
+ * @FilePath: \shangguigu-Vue\18_非单文件组件\1.基本使用.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+/**
+ * @description: 
+ * @return {*}
+ */
+
+
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+        <school></school>
+        <hr>
+        <student></student>
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+        
+        // 创建school组件
+        const school = Vue.extend({
+            // el:'#box', 
+            template:`
+            <div>
+                <h2>学校名称：{{schoolName}}</h2>
+                <h2>学校地址：{{address}}</h2> 
+                
+            </div>
+            `,
+            data(){
+                return{
+                    schoolName:'北京大学',
+                    address:'北京'            
+                }
+            }
+        })
+
+        // 创建student组件
+        const student = Vue.extend({
+            template:`
+            <div>
+                <h2>学生姓名：{{studentName}}</h2>
+                <h2>学生年龄：{{age}}</h2>        
+            </div>
+            `,
+            data(){
+                return{
+                    studentName:'小明',
+                    age:'19'   
+                }
+            }
+        })
+
+        // 创建vm
+        new Vue({
+            el:'#box',
+            components:{
+                school,
+                student
+            }
+        })
+    </script>
+</body>
+</html>

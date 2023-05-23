@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>姓名案例-插值</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+        姓：<input type="text" v-model="firstName"><br>
+        名：<input type="text" v-model="lastName"><br>
+        <!-- .slice(0,3) 只取第0位到第三位的值 -->
+        姓名：<span>{{fullName()}}</span>
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+        new Vue({
+            el:'#box',
+            data:{
+                firstName:'张',
+                lastName:'三'
+            },
+            methods:{
+                fullName(){
+                    return this.firstName + this.lastName;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

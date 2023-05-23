@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <script type='text/javascript' src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+        <h2 v-text="name"></h2>
+        <h2 v-text="str"></h2>
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+         new Vue({
+            el:'#box',
+            data:{
+                name:'小肥牛',
+                str:'<h1>你好世界</h1>'
+            }
+        })
+    </script>
+</body>
+</html>

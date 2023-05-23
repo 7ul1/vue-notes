@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <style>
+        .basic{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        .happy{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .said{
+            width: 200px;
+            height: 200px;
+            background: green;
+        }
+        
+        .normol{
+            width: 200px;
+            height: 200px;
+            background: purple;
+        }
+        .atguigu1{
+            background: orange;
+        }
+        .atguigu2{
+            border-radius: 10;
+        }
+        .atguigu3{
+            color: pink;
+        }
+    </style>
+    <script type='text/javascript' src='../js/vue.js'></script>
+</head>
+<body>
+    <div id='box'>
+        <!-- class绑定样式--字符串写法 适用于：样式的类名不确定 需要动态指定 -->
+        <div class="basic" :class="mood" @click="info">{{name}}</div>
+        
+        <br><br>
+        <!-- class绑定样式--数组写法 适用于：需要绑定的样式个数不确定 名字也不确定 -->
+        <div class="basic" :class="classArr">{{name}}</div>
+        
+        <br><br>
+        <!-- class绑定样式--对象写法 适用于：样式的个数确定 名字确定 但不确定用不用 -->
+        <div class="basic" :class="classObj">{{name}}</div>
+
+        <br><br>
+        <div class="basic" :style="styleObj">{{name}}</div>
+        <br><br>
+        <div class="basic" :style="styleArr">{{name}}</div>
+        
+    </div>
+    <script type='text/javascript'>
+        Vue.config.porductionTip = false;
+        new Vue({
+            el:'#box',
+            data:{
+                name:'小肥牛',
+                mood:'happy',
+                classArr:['atguigu1','atguigu2','atguigu3'],
+                classObj:{
+                    atguigu1:false,
+                    atguigu2:false
+                },
+                styleObj:{
+                    fontSize:'40px',
+                    color:'red',
+                },
+                styleObj2:{
+                    background:'pink'
+                },
+                styleArr:[
+                {
+                    fontSize:'40px',
+                    color:'red',
+                },
+                {
+                    background:'pink'
+                },
+                ]
+            },
+            methods: {
+                info(){
+                    const arr = ['happy','said','normol']
+                    // const index = Math.floor(Math.random()*3)
+                    // this.mood = arr[index]
+                    this.mood = arr[Math.floor(Math.random()*3)]
+                }
+            },
+        })
+    </script>
+</body>
+</html>

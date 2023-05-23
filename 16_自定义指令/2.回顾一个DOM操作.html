@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo{
+            border: 2px solid red;
+            background: darkgoldenrod;
+            color: #fff;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- <input type="text"> -->
+    <button id="btn">点我创建输入框</button>
+    <script>
+        const btn = document.getElementById('btn')
+        btn.onclick = ()=>{
+            // createElement 创建一个元素
+            const input = document.createElement('input')
+            input.value = '123123'
+            input.className = 'demo'
+            document.body.appendChild(input)
+            input.focus()
+            input.parentElement.style.background = 'red'
+        }
+    </script>
+</body>
+</html>
